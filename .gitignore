@@ -1,0 +1,48 @@
+# Python cache / compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+env/
+venv/
+.venv/
+ENV/
+env.bak/
+
+# Environment variables / secrets
+.env
+*.env
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Databases
+*.sqlite3
+*.db
+
+# Bytecode compiled for Cython or extensions
+*.so
+
+# PyInstaller build outputs
+build/
+dist/
+*.spec
+
+# Coverage and testing
+.coverage
+htmlcov/
+.cache/
+pytest_cache/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Git / IDE settings
+.vscode/
+.idea/

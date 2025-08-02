@@ -1,8 +1,29 @@
+# Python cache / compiled files
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
+
+# Virtual environments
 env/
 venv/
+.venv/
+ENV/
+env.bak/
+
+# OS-specific
 .DS_Store
+Thumbs.db
+
+# Git
 .git
+.gitignore
+
+# Environment variables / secrets
+.env
+*.env
+
+# Other development files
+*.log
+*.sqlite3
+*.db
