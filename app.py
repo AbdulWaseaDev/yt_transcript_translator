@@ -7,12 +7,13 @@ import logging
 from functools import lru_cache
 from flask_cors import CORS
 import time
+import os
 
 app = Flask(__name__)
 CORS(app)
 
 # --- Configuration ---
-LIBRETRANSLATE_URL = "http://vo8g84408o4scockow4ow8o8.161.97.109.36.sslip.io"
+LIBRETRANSLATE_URL = os.getenv("LIBRETRANSLATE_URL")
 CHUNK_SIZE = 350
 CACHE_SIZE = 100
 TRANSLATION_TIMEOUT = 60
@@ -163,7 +164,7 @@ def translate_transcript():
 # --- Home ---
 @app.route("/")
 def home():
-    return render_template("t_index.html")
+    return render_template("index.html")
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5001, debug=True)
+    app.run(host="0.0.0.0", port=5001) # removed for production (, debug=True)
