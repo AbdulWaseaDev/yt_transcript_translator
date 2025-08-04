@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 from youtube_transcript_api import YouTubeTranscriptApi
+from youtube_transcript_api.proxies import WebshareProxyConfig
 from youtube_transcript_api._errors import TranscriptsDisabled, NoTranscriptFound
 import requests
 import re
@@ -7,17 +8,30 @@ import logging
 from functools import lru_cache
 from flask_cors import CORS
 import time
+from dotenv import load_dotenv
 import os
+
+load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
 
 # --- Configuration ---
 LIBRETRANSLATE_URL = os.getenv("LIBRETRANSLATE_URL")
+WEBPROXY_USER = os.getenv("WEBPROXY_USER")
+WEBPROXY_PASS = os.getenv("WEBPROXY_PASS")
 CHUNK_SIZE = 350
 CACHE_SIZE = 100
 TRANSLATION_TIMEOUT = 60
 TRANSLATION_RETRIES = 3
+
+# Iniialize YouTubeTranscriptApi with webshare proxy
+ytt_api = YouTubeTranscriptApi(
+    proxy_config=WebshareProxyConfig(
+        proxy_username=WEBPROXY_USER,
+        proxy_password=WEBPROXY_PASS
+    )
+)
 
 # --- Logging ---
 logging.basicConfig(level=logging.INFO)
