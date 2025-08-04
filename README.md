@@ -34,18 +34,23 @@ A Flask-based web application that:
    git clone https://github.com/yourusername/youtube-transcript-translator.git
    cd youtube-transcript-translator
 
-python -m venv venv
-source venv/bin/activate    # On Linux/Mac
-venv\Scripts\activate       # On Windows
+2. **Create a virtual environment**
+   '''bash
+    python -m venv venv
+    source venv/bin/activate    # On Linux/Mac
+    venv\Scripts\activate       # On Windows
 
-Install dependencies
-pip install -r requirements.txt
+3. **Install dependencies**
+'''bash
+    pip install -r requirements.txt
 
-Create a .env file in the project root:
-LIBRETRANSLATE_URL=http://localhost:5000
-WEBPROXY_USER=your_webshare_username
-WEBPROXY_PASS=your_webshare_password
+4. **Create a .env file in the project root:**
+'''bash
+    LIBRETRANSLATE_URL=http://localhost:5000
+    WEBPROXY_USER=your_webshare_username
+    WEBPROXY_PASS=your_webshare_password
 
 
-Running Locally
-python app.py
+5. **Running Locally**
+'''bash
+    python app.py
