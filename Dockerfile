@@ -14,16 +14,9 @@ RUN apk add --no-cache \
     curl \
     && pip install --upgrade pip
 
-# Remove any existing youtube-transcript-api before installing
-RUN pip uninstall -y youtube-transcript-api || true
-
 # Copy requirements and install Python dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
-
-# Double-check youtube-transcript-api version after install
-RUN pip show youtube-transcript-api && \
-    python -c "import youtube_transcript_api; print('✅ youtube-transcript-api version:', youtube_transcript_api.__version__)"
 
 # Copy the application code
 COPY . .
