@@ -50,7 +50,6 @@ A Flask-based web application that:
    WEBPROXY_USER=your_webshare_username
    WEBPROXY_PASS=your_webshare_password
 
-
 5. **Running Locally**
    ```bash
    python app.py
